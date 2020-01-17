@@ -1,0 +1,43 @@
+---
+# tasks file for virtualbox
+# https://wiki.centos.org/HowTos/Virtualization/VirtualBox
+
+- name: add virtualbox yum repository
+  become: yes
+  yum_repository:
+    name: virtualbox
+    description: public stable virtualbox repo
+    baseurl: "{{ virtualbox_repo }}"
+    gpgcheck: no
+
+- name: install dkms
+  become: yes
+  yum:
+    name: dkms
+    state: present
+
+- name: install the 'Development tools' package group
+  become: yes
+  yum:
+    name: "@Development tools"
+    state: present
+
+- name: install kernel-devel
+  become: yes
+  yum:
+    name: kernel-devel
+    state: present
+
+- name: install virtualbox
+  become: yes
+  yum:
+    name: "VirtualBox-{{ virtualbox_version }}"
+    state: present
+
+- name: add user to vboxusers group
+  become: yes
+  user:
+    name: "{{ virtualbox_user }}"
+    shell: /bin/bash
+    groups: vboxusers
+    append: yes
