@@ -18,7 +18,7 @@ None
   Defaults to the publicly available one for rpms. 
   Can override to use Artifactory remote repository.
 * virtualbox_version: The major version of VirtualBox to install.
-* virtualbox_user: The user to which will run VirtualBox.
+* virtualbox_user: The user which will run VirtualBox.
   Defaults to 'jenkins' as this role was intended to run through CI/CD.
 
 ## Dependencies
