@@ -2,6 +2,8 @@
 
 Install Oracle VirtualBox.
 
+For information about PTA and how to use it with this Ansible role please visit https://github.com/Forcepoint/fp-pta-overview/blob/master/README.md
+
 ## Requirements
 
 None
